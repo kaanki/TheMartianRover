@@ -8,8 +8,6 @@ namespace TheMartian
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             Rover rover = null;
@@ -21,17 +19,19 @@ namespace TheMartian
             {
                 while (rover == null)
                 {
-                    rover = cordinates.InitRover();
+                    Console.WriteLine("Please enter the upper right coordinates in the format X Y");
+                    rover = cordinates.InitRover(Console.ReadLine());
                 }
-
-                if (cordinates.RoverPosition(rover) ==null)
+                Console.WriteLine("Please enter your rovers intial position");
+                if (cordinates.RoverPosition(rover,Console.ReadLine()) ==null)
                 {
                     continue;
                 }
 
                 while (movements == null)
                 {
-                    movements = cordinates.RoverMovement(rover);
+                    Console.WriteLine("Please enter your rovers movements");
+                    movements = cordinates.RoverMovement(rover,Console.ReadLine());
                 }
 
                 var results = rover.Move(movements);

@@ -8,10 +8,10 @@ namespace TheMartian
 {
     public class Cordinates
     {
-        public Rover InitRover()
+        public Rover InitRover(string coordinates)
         {
-            Console.WriteLine("Please enter the upper right coordinates in the format X Y");
-            var initCoordinates = Console.ReadLine().Trim().Split(' ');
+            
+            var initCoordinates = coordinates.Trim().Split(' ');
 
             if (initCoordinates.Length != 2)
             {
@@ -28,10 +28,10 @@ namespace TheMartian
             return new Rover(x, y);
         }
 
-        public Rover RoverPosition(Rover rover)
+        public Rover RoverPosition(Rover rover,string initialPos)
         {
-            Console.WriteLine("Please enter your rovers intial position");
-            var intialPos = Console.ReadLine().Trim().Split(' ');
+            
+            var intialPos = initialPos.Trim().Split(' ');
 
             if (intialPos.Length != 3)
             {
@@ -54,10 +54,9 @@ namespace TheMartian
             return rover;
         }
 
-        public string RoverMovement(Rover rover)
+        public string RoverMovement(Rover rover,string movement)
         {
-            Console.WriteLine("Please enter your rovers movements");
-            var movements = Console.ReadLine().Trim();
+            var movements = movement.Trim();
 
             if (movements.ToUpperInvariant().IndexOfAny(rover.CmdArray) != 0)
             {
